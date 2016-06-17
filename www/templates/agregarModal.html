@@ -1,0 +1,86 @@
+<ion-modal-view ng-controller="regproCtrl">
+  <ion-header-bar class="bar bar-header bar-positive">
+    <button class="button button-clear button-primary" ng-click="regProd()">Agregar</button>
+    <h1 class="title">New items</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content>
+ 
+
+
+
+
+    <div class="list list-inset">
+    <!--
+      <label class="item item-input">
+        <span class="input-label">Foto</span>
+        <input type="text">
+      </label>
+      -->
+      <label class="item item-input">
+        <span class="input-label">Nombre</span>
+        <input type="text" ng-model="regprod.nombre">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Precio</span>
+        <input type="number" ng-model="regprod.precio" ng-keyup="transf()">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Inventario
+        </div>
+        <select ng-model="regprod.existencia">
+          <option selected ng-value="1">Por Pedido</option>
+          <option ng-value="2">Existencia</option>
+          <option ng-value="3">Por Paquete</option>
+        </select>
+      </label>
+      <div class="" >
+        <label class="item item-input" ng-show="regprod.existencia == 2" >
+
+          <span class="input-label" >Cantidad</span>
+
+          <input type="number" ng-model="regprod.cantidad1">
+
+        </label>
+      </div>
+      <label class="item item-input item-select" ng-show="regprod.existencia == 3">
+        <div class="input-label">
+          Unidad Medida
+        </div>
+        <select ng-model="regprod.unidad">
+          <option ng-repeat="unidad in unidades" ng-value="{{unidad.val}}">{{unidad.val}}</option>
+        </select>
+      </label>
+      <div class="" >
+        <label class="item item-input" ng-show=" regprod.existencia == 3" >
+
+          <span class="input-label">Cantidad</span>
+          <input type="number" ng-model="regprod.cantidad">
+        </label>
+      </div>
+      <label class="item item-input">
+        <span class="input-label">Descuento %</span>
+        <input type="number" ng-model="regprod.descuento">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Caracteristicas</span>
+        <textarea type="text" ng-model="regprod.detalle"></textarea>
+      </label>
+    </div>
+    
+  </ion-content>
+
+ 
+</ion-modal-view>
+
+<!--
+<div class="modal">
+  <header class="bar bar-header bar-positive">
+    <h1 class="title">{{title}}</h1>
+    <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+  </header>
+  <content has-header="true" padding="true">
+    <p>This is a modal</p>
+  </content>
+</div>-->

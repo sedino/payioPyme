@@ -1,0 +1,24 @@
+
+
+
+<ion-view view-title="Login">
+  <ion-content scroll="false" class="loginContent">
+    <div class="cont">
+      <div class="posision">
+        <div class="login">
+          <div class="loginCheck"></div>
+          <div class="loginForm">
+            <div class="loginRow">
+              <input type="text" class="loginInput name" placeholder="Usuario" ng-model="logdata.usu" >
+            </div>
+            <div class="loginRow">
+              <input type="password" class="loginInput pass" placeholder="Password" ng-model="logdata.pass">
+            </div>
+            <button class="loginSubmit button" ng-click="login()">Ingresar</button>
+            <p class="loginSignup">Olvido su contraseña &nbsp;<a>Recuperar</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

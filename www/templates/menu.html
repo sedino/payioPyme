@@ -1,0 +1,76 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-tabs class=" tabs-background-dark tabs-icon-top tabs-top tabs-color-energized ">
+        <!-- resumen Tab -->
+        <ion-tab  title="Resumen" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/app/resum"> 
+        </ion-tab>
+        <!-- chart Tab 
+        <ion-tab  title="Chart"  icon-off="ion-arrow-graph-up-right" icon-on="ion-arrow-graph-up-right" href="#/app/chart">
+        </ion-tab>-->
+        <!-- inventario Tab -->
+        <ion-tab  title="Inventario" icon-off="ion-clipboard" icon-on="ion-clipboard" href="#/app/inventario">
+        </ion-tab>
+        <!-- cajas Tab -->
+        <ion-tab  title="Cajas" icon-off="ion-person-add" icon-on="ion-person-add" href="#/app/cajas">
+        </ion-tab>
+        <!-- transf Tab -->
+        <ion-tab  title="transferencia" icon-off="ion-cash" icon-on="ion-cash" href="#/app/transferencia">
+        </ion-tab>
+      </ion-tabs>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent">
+      
+
+
+    </ion-nav-view>
+
+
+
+  </ion-side-menu-content>
+
+   <ion-side-menu side="left"  enable-menu-with-back-views="false">
+    <div class="menuHeader" align="center">
+    <div>
+    <img src="img/payio.png"></div>
+    </div>
+    
+
+    <ion-content class="menucontent" scroll="false">
+
+      <div class="list colorlist">
+        <a class="item item-icon-left" menu-close href="#/app/login">
+          <i class="icon ion-person"></i>
+          login
+        </a>
+        <a class="item item-icon-left" menu-close href="#/app/configuracion">
+          <i class="icon ion-gear-a"></i>
+          configuracion
+        </a>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+
+  <!--<ion-side-menu side="left">
+    <ion-header-bar class="bar-calm">
+      <h1 class="title">Left</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+
+      <ion-item menu-close href="#/app/login">
+          LoginP
+        </ion-item>
+
+        <ion-item menu-close href="#/app/configuracion">
+          Configuracion
+        </ion-item>
+  
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>-->
+</ion-side-menus>

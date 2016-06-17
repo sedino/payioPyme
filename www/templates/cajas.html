@@ -1,0 +1,48 @@
+<ion-view view-title="Cajas" class="fondo">
+  <ion-content class="padding">
+    <div class="row">
+      <div class="col col-center">
+       <div class="row responsive-sm alinear" >
+          <div class="col col-25" ng-repeat="caja in payioCajas.data">
+            <div class="list card panel-body">
+            <div class="item item-avatar">
+              <img src="img/favicon.png">
+              <h2>{{caja.nombre}}</h2>
+              <p>{{caja.fechaIni}}</p>
+            </div>
+            
+              <div class="item item-body">
+                <!--<table>
+                  <thead>
+                    <tr>
+                      <th>Items</th>
+                      <th>Total</th>
+                    </tr>             
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="items in payioVentas.ventas | limitTo: query.limit: (query.page -1) * query.limit">
+                      <td>{{items.item}}</td>
+                      <td>{{items.costo.value | currency}}</td>
+                    </tr>
+                  </tbody>
+                </table>-->
+                <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+                  <tr ng-repeat="items in payioVentas.ventas | limitTo: query.limit: (query.page -1) * query.limit">
+                    <td title="'item'" >
+                        {{items.item}}</td>
+                    <td title="'costo'">
+                      {{items.costo.value | currency}}</td>
+                  </tr>
+                </table>
+                <button class="button button-full button icon-right ion-chevron-right button-calm">
+                  Ver mas
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

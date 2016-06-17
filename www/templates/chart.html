@@ -1,0 +1,72 @@
+<ion-view view-title="Chats" class="fondo">
+  <ion-content class="padding">
+    <div class="row responsive-sm" >
+        <div class="col chartColurs" >
+        <div class="card " >
+          <!--<canvas height="400" id="bar" class="chart chart-bar" chart-data="barData.data" chart-labels="barData.labels" chart-colours="barData.colours"  chart-options="barData.options" chart-series="barData.series" >chart-click="onClick"
+          </canvas>-->
+
+          <!--<canvas height="400" class=" chart chart-line" chart-data="lineData.data" chart-labels="lineData.labels" chart-colours="lineData.colours"  chart-options="lineData.options" chart-series="lineData.series" >
+          </canvas>-->
+          <div class="trans graf top-marg-resum">
+            <canvas height="400" class=" chart chart-line" chart-data="data" chart-labels="labels" chart-colours="colours"  chart-options="options" chart-series="series" hart-click="onClick" >   </canvas>
+
+            <!--<div class="row cash-resumen">
+              <div class="col col-33 item-cash-resumen">
+                <h5 class="font-rcl font-resum-12">RETIROS</h5>
+                <h4 class="font-rcl font-monto">{{'0' | currency:'Bs '}}</h4>
+              </div>
+              <div class="col col-33 item-cash-resumen">
+                <h5 class="font-rcl font-resum-15">BALANCE</h5>
+                <h4 class="font-rcl font-monto" >{{balance | currency:'Bs '}}</h4>
+              </div>
+              <div class="col col-33 item-cash-resumen">
+                <h5 class="font-rcl font-resum-12">INGRESOS</h5>
+                <h4 class="font-rcl font-monto">{{ingresos | currency:'Bs '}}</h4>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+   
+     
+   
+            <div class="row dataresum responsive-sm">
+
+              <div class="col col-33">
+              <div class="card dato" align="center">
+                <h5>RETIROS</h5>
+                <h4>{{'0' | currency:'Bs'}}</h4>
+              </div>
+              </div>
+
+              <div class="col col-33">
+                <div class="card dato1" align="center">
+                <h5>BALANCE</h5>
+                <h4>{{balance | currency:'Bs'}}</h4>
+                </div>
+              </div>
+
+              <div class="col col-33">
+              <div class="card dato2" align="center">
+                <h5>INGRESOS</h5>
+                <h4>{{ingresos | currency:'Bs'}}</h4>
+              </div>
+              </div>
+
+
+            </div>
+    
+      </div>
+  
+
+  </ion-content>
+</ion-view>
+
+
+
+
+<!--<div class="graficss" id="cont" align="center">-->
