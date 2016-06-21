@@ -404,15 +404,35 @@ angular.module('starter.controllers', [])
 
     //$scope.nomprod=$stateParams.producto;
     $scope.elimprod = function(prodElim) {
-    socket.emit('elimprod',prodElim);
-    };
-    socket.removeListener('repelimprod');
+    var confirmPopup = $ionicPopup.confirm({
+       title: 'Consume Ice Cream',
+       template: 'Are you sure you want to eat this ice cream?'
+     });
+
+    confirmPopup.then(function(res) {
+       if(res) {
+         socket.emit('elimprod',prodElim);
+       } else {
+         console.log('no');
+       }
+
+socket.removeListener('repelimprod');
     socket.on('repelimprod',function(){
       $scope.alertMessage = 'El producto ha sido eliminado';
       $scope.showAlert();
       socket.emit('sqlprod', $scope.datos);
-
     });
+
+     });
+
+    };
+    
+
+     // A confirm dialog
+   $scope.showConfirm = function() {
+     
+     
+   };
 
   $scope.datosTabla = new NgTableParams({}, { dataset: $scope.dataVentas});
   
@@ -520,6 +540,123 @@ angular.module('starter.controllers', [])
 
  $scope.tableParams = new NgTableParams({}, { dataset: $scope.payioVentas});
   
+})
+
+.controller('Cajas', function($scope,$ionicPopup,EnlaceService,$stateParams,$ionicHistory,$filter,socket,$state,pagoService,$timeout,userData) {
+  $scope.Swiper=null;
+  $scope.sollog='false';
+  $scope.enllog='false';
+  $scope.dataEnlaces='';
+  $scope.index = 0;
+  $scope.pageInv = 'Cajas';
+  socket.emit('sqlsolenl',userData.datos.userId);
+  $scope.options = {
+    onSlideChangeEnd: function(swiper){
+      if(swiper.activeIndex == 0){
+        $scope.pageInv ='Solicitudes';
+        socket.emit('sqlsolenl',userData.datos.userId);
+      }
+      if(swiper.activeIndex == 1){
+        $scope.pageInv ='Enlazados'; 
+        socket.emit('sqlenlazados',userData.datos.userId);
+      } 
+      $scope.$apply();
+     },
+     onInit:function(swiper){
+        $scope.declareSwiper(swiper);
+        $scope.$digest();
+     },
+     pagination: false
+  }
+  $scope.declareSwiper = function(swiper){
+    $scope.Swiper = swiper;
+  }
+  $scope.slideTo = function(slide){
+    $scope.Swiper.slideTo(slide, 200, true);
+  }
+  socket.removeListener('repsqlsolenl');
+  socket.on('repsqlsolenl',function(solenl){
+    //alert(enl);
+    $scope.dataEnlaces=solenl;
+    if ($scope.dataEnlaces[0]=='f') {
+      $scope.dataEnlaces=[];
+    }
+    $scope.sollog='true';
+    $scope.countenl=$scope.dataEnlaces.length;
+  });
+  socket.removeListener('repsqlenlazados');
+  socket.on('repsqlenlazados',function(enlazados){
+    //alert(enl);
+    $scope.dataEnlazados=enlazados;
+    if ($scope.dataEnlazados[0]=='f') {
+      $scope.dataEnlazados=[];
+    }
+    $scope.enllog='true';
+    $scope.countenlazados=$scope.dataEnlazados.length;
+  });
+  $scope.showAlert = function() {
+    var alertPopup = $ionicPopup.alert({
+     title: 'Alerta',
+     template: $scope.alertMessage
+    });
+
+    alertPopup.then(function(res) {
+     
+    });
+  };
+ 
+  $scope.enlazar = function(caja){
+    //alert(caja.userId);
+    var datenl={userId:caja.userId,tiprif:caja.tiprif,rif:caja.rif,password:caja.password,idmaster:caja.idmaster};
+    //alert(datenl);
+    socket.emit('enlazar',datenl);
+  }
+  socket.removeListener('respenlazarerr');
+  socket.on('respenlazarerr',function(err){
+    $scope.alertMessage = 'La caja ya se encuentra enlazada!';
+    $scope.showAlert();
+  });
+  socket.removeListener('respenlazar');
+  socket.on('respenlazar',function(dat){
+    socket.emit('sqlsolenl',userData.datos.userId);
+    $scope.alertMessage = 'Enlace exitoso!';
+    $scope.showAlert();
+  });
+  $scope.deletEnl= function(caja){
+
+    $scope.showConfirm = function() {
+       var confirmPopup = $ionicPopup.confirm({
+         title: 'Alerta',
+         template: 'Esta seguro de Desenlazar '+caja.userId+'?',
+         buttons: [
+          { text: 'No' },
+          {
+            text: '<b>Si</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              
+                return true;
+              
+            }
+          }
+        ]
+       });
+
+       confirmPopup.then(function(res) {
+         if(res) {
+           //alert('hola');
+           socket.emit('desenlazar',caja);
+         } else {
+           console.log('You are not sure');
+         }
+       });
+     };
+     $scope.showConfirm();
+  };
+  socket.removeListener('repdesenlazar');
+  socket.on('repdesenlazar',function(desenlazar){
+    socket.emit('sqlenlazados',userData.datos.userId);
+  });
 })
 
 
