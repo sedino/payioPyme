@@ -1,129 +1,69 @@
 <ion-view view-title="Resumen" class="fondo">
   <ion-content class="padding has-header">
-   
-   <div class="row widget">
-
-   
-     
-   
-            <div class="row dataresum responsive-sm">
-
-              <div class="col col-33">
-                <div class="dato2">
-                <div class="card " align="center">
-
-                  
-                  <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{ingresos | currency:'Bs'}}</p>
-                  <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">INGRESOS</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col col-33">
-                <div class="dato1">              
-                <div class="card" align="center">
-
-                  <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{balance | currency:'Bs'}}</p>
-                  <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">BALANCE</p>
-                </div>
-                </div>
-              </div>
-
-              <div class="col col-33">
-                <div class="dato">              
-                <div class="card " align="center">
-
-                  <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{'0' | currency:'Bs'}}</p>
-                  <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">RETIROS</p>
-                </div>
-                </div>
-              </div>
-
+   <div class="row ">
+      <div class="row dataresum responsive-sm ">
+        <div class="col col-33">
+          <div class="dato2">
+          <div  class="widget md-whiteframe-z2  flex " align="center">
+            <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{ingresos | currency:'Bs'}}</p>
+            <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">INGRESOS</p>
             </div>
-    
-      </div>
-
-    <div class="row responsive-sm" >
-        <div class="col chartColurs" >
-        <div class="card " >
-          <!--<canvas height="400" id="bar" class="chart chart-bar" chart-data="barData.data" chart-labels="barData.labels" chart-colours="barData.colours"  chart-options="barData.options" chart-series="barData.series" >chart-click="onClick"
-          </canvas>-->
-
-          <!--<canvas height="400" class=" chart chart-line" chart-data="lineData.data" chart-labels="lineData.labels" chart-colours="lineData.colours"  chart-options="lineData.options" chart-series="lineData.series" >
-          </canvas>-->
-          <div class="trans graf top-marg-resum" >
-            <canvas height="400" class=" chart chart-line" chart-data="data" chart-labels="labels" chart-colours="colours"  chart-options="options" chart-series="series" hart-click="onClick" >   </canvas>
-
-            <!--<div class="row cash-resumen">
-              <div class="col col-33 item-cash-resumen">
-                <h5 class="font-rcl font-resum-12">RETIROS</h5>
-                <h4 class="font-rcl font-monto">{{'0' | currency:'Bs '}}</h4>
-              </div>
-              <div class="col col-33 item-cash-resumen">
-                <h5 class="font-rcl font-resum-15">BALANCE</h5>
-                <h4 class="font-rcl font-monto" >{{balance | currency:'Bs '}}</h4>
-              </div>
-              <div class="col col-33 item-cash-resumen">
-                <h5 class="font-rcl font-resum-12">INGRESOS</h5>
-                <h4 class="font-rcl font-monto">{{ingresos | currency:'Bs '}}</h4>
-              </div>
-            </div>-->
+          </div>
+        </div>
+        <div class="col col-33">
+          <div class="dato1">              
+          <div class="widget md-whiteframe-z2 flex " align="center">
+            <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{balance | currency:'Bs'}}</p>
+            <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">BALANCE</p>
+          </div>
+          </div>
+        </div>
+        <div class="col col-33">
+          <div class="dato">              
+          <div class="widget md-whiteframe-z2 flex " align="center">
+            <p class="md-display-2 font-weight-100 margin-top-10 margin-bottom-0">{{'0' | currency:'Bs'}}</p>
+            <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-10">RETIROS</p>
+          </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="row responsive-sm resumen">
-      <div class="col" >
-        <div class="card ">
-          
-         
-            <table ng-table="datosTabla" class="table table-condensed table-bordered table-striped">
-              <tr ng-repeat="items in dataVentas | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
-                <td title="'Usuario'" sortable="'pagUsu'">
-                {{items.pagUsu}}
-                </td>
-                <td title="'Monto'" sortable="'monto'">
-                {{items.monto}}
-                </td>
-                <td title="'Fecha'" sortable="'fecha'">
-                {{items.fecha}}
-                </td>
-                <td title="'Status'" sortable="'status'">
-                <span class="estado" ng-class="{'estado-pagado' : items.status === 'pagado' , 'estado-cancelado' : items.status === 'Cancelado'}">
-                {{items.status}}
-                </span>
-                </td>
-              </tr>
-            </table>
-        
-         
-          
-
-
-          
+    <div class="row responsive-sm" >
+        <div class="col chartColurs" >
+        <div class="widget md-whiteframe-z2  flex " >
+          <div class="trans graf top-marg-resum widget-content" >
+            <canvas height="400" class=" chart chart-line" chart-data="data" chart-labels="labels" chart-colours="colours"  chart-options="options" chart-series="series" hart-click="onClick" >   </canvas>
+          </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card ">
-          <table ng-table="datosTabla" class="table table-condensed table-bordered table-striped">
-              <tr ng-repeat="items in dataVentas | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
-                <td title="'Usuario'" sortable="'pagUsu'">
-                {{items.pagUsu}}
-                </td>
-                <td title="'Monto'" sortable="'monto'">
-                {{items.monto}}
-                </td>
-                <td title="'Fecha'" sortable="'fecha'">
-                {{items.fecha}}
-                </td>
-                <td title="'Status'" sortable="'status'">
-                <span class="estado" ng-class="{'estado-pagado' : items.status === 'pagado' , 'estado-cancelado' : items.status === 'Cancelado'}">
-                {{items.status}}
-                </span>
-                </td>
-              </tr>
-            </table>
+    </div>
+    <div class="row">
+      <div class="col col-center">
+       <div class="row responsive-sm resumen" >
+          <div class="col col-50">
+            <div class="list panel-body widget md-whiteframe-z2">
+              <div class="item item-body">
+                <table ng-table="datosTabla" class="table table-condensed table-bordered table-striped">
+                  <tr ng-repeat="items in dataVentas | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                    <td title="'Usuario'" sortable="'pagUsu'">
+                    {{items.pagUsu}}
+                    </td>
+                    <td title="'Monto'" sortable="'monto'">
+                    {{items.monto}}
+                    </td>
+                    <td title="'Fecha'" sortable="'fecha'">
+                    {{items.fecha}}
+                    </td>
+                    <td title="'Status'" sortable="'status'">
+                    <span class="estado" ng-class="{'estado-pagado' : items.status === 'pagado' , 'estado-cancelado' : items.status === 'Cancelado'}">
+                    {{items.status}}
+                    </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

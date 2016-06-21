@@ -1,12 +1,14 @@
-<ion-modal-view ng-controller="regproCtrl">
-  <ion-header-bar class="bar bar-header bar-positive">
-    <button class="button button-clear button-primary" ng-click="regProd()">Agregar</button>
+
+<ion-view view-title="Agregar Productos" class="fondo" >
+
+  
+  <ion-content class="padding has-header">
+ 
+  <!--<ion-header-bar class="bar bar-header bar-positive">
+    
     <h1 class="title">New items</h1>
     <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
-  </ion-header-bar>
-  <ion-content>
- 
-
+  </ion-header-bar>-->
 
 
 
@@ -67,13 +69,15 @@
         <span class="input-label">Caracteristicas</span>
         <textarea type="text" ng-model="regprod.detalle"></textarea>
       </label>
+  
+
+      <button class="button button-block button-positive" ng-click="regProd()">Agregar Producto</button>
     </div>
-    
+   
   </ion-content>
 
  
-</ion-modal-view>
-
+</ion-view>
 <!--
 <div class="modal">
   <header class="bar bar-header bar-positive">

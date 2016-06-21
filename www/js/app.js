@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.socketServices', 
+angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starter.socketServices', 
   'chart.js', 'btford.socket-io',   'ngTable' ])
 
 .run(function($ionicPlatform) {
@@ -70,6 +70,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.socketServic
     }
   })
 
+    .state('app.addInv', {
+    url: '/inventario/:agregarModalId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/agregarModal.html',
+        controller: 'regproCtrl'
+            
+      }
+    }
+  })
 
   .state('app.cajas', {
     url: '/cajas',

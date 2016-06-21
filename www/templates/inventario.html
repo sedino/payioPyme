@@ -1,80 +1,53 @@
 <ion-view view-title="Inventario" class="fondo">
-  <ion-content class="inventario">
-
-  <div class="row">
-  	<div class="col">
-    <div class="list card">
-      <div class="item item-avatar item-button-right">
-        <img src="img/favicon.png">
-        <h2>Inventario</h2>
-        <p>Nombre empresa</p>
-
-        <button class="button button-positive" ng-click="openModal()">
-          Agregar inventario
-        </button>
-        <!--<button ng-click="utilsService.hideModal()">Hide modal</button>-->
-      </div>
-    <div class="item item-body  ">
-
-  		<table ng-table="datosTabla" class="table table-condensed table-bordered table-striped" show-filter="false">
-    		<tr ng-repeat="producto in dataVentas">
-          <td title="'Nombre'" sortable="'nombre'">
-            {{producto.nombre}}
-          </td>
-          <td title="'Cantidad'" sortable="'cantidad1 && cantidad'">
-            {{producto.cantidad}} {{producto.cantidad1}}
-          </td>
-          <td title="'Existencia'" sortable="'existencia'">
-            <span class="existencia" ng-class="{'existencia-paquete' : producto.existencia === 'Por Paquete' , 'existencia-pedido' : producto.existencia === 'por pedido' , 'existencia-existencia' : producto.existencia === 'Existencia'}">
+  <ion-content class="inventario padding has-header">
+    <div class="row" >
+  	 <div class="col">
+      <div class="list widget md-whiteframe-z2 ">
+        <div class="item item-avatar item-button-right ">
+          <img src="img/favicon.png">
+          <h2>Inventario</h2>
+          <p>Nombre empresa</p>
+          <a class="button button-positive" href="#/app/inventario/:agregarModalId">
+            Agregar inventario
+          </a>
+        </div>
+        <div class="item item-body">
+          <div class="row" ng-show="counprod === 0 ">
+            <div class="col card barra">
+               aqui aparecera sus productos
+            </div>
+          </div>
+  		    <table ng-table="datosTabla" class="table table-condensed table-bordered table-striped" >
+            <tr  ng-repeat="producto in dataVentas" >
+              <td title="'Nombre'" sortable="'nombre'">
+              {{producto.nombre}}
+            </td>
+            <td title="'Cantidad'" sortable="'cantidad1 && cantidad'">
+              {{producto.cantidad}} {{producto.cantidad1}}
+            </td>
+            <td title="'Existencia'" sortable="'existencia'">
+              <span class="existencia" ng-class="{'existencia-paquete' : producto.existencia === 'Por Paquete' , 'existencia-pedido' : producto.existencia === 'Por Pedido' , 'existencia-existencia' : producto.existencia === 'Existencia'}">
               {{producto.existencia}}
-            </span>
-            
-          </td>
-          <td title="'Descuento'" sortable="'descuento'">
-            {{producto.descuento}}%
-          </td>
-          <td title="'costo'" sortable="'costo'">
-            {{producto.precio | currency: "Bs"}}
-          </td>
-        </tr>
-
-
-
-        <!--<table>
-                <thead>
-                  <tr>
-                    <th>Fecha</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Status</th>
-                    <th>Fecha de vencimiento</th>
-                    <th>Costo</th>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="items in filtraInv | limitTo: query.limit: (query.page -1) * query.limit">
-                    <td>{{items.item}}</td>
-                    <td>{{items.costo.value | currency}}</td>
-                  </tr>
-                </tbody>
-              </table>
-			     <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
-
-  	   </div>  	
-      </div>-->
-
-
-    <!--<tr ng-repeat="items in payioVentas.ventas">
-          <td title="'Fecha'" filter="{ fecha: 'number'}" sortable="'fecha'">{{items.fecha}}</td>
-          <td title="'Nombre'" filter="{ nombre: 'text'}" sortable="'nombre'">{{items.nombre}}</td>
-          <td title="'Cantidad'" filter="{ cantidad: 'number'}" sortable="'cantidad'">{{items.cantidad}}</td>
-          <td title="'Status'" filter="{ status: 'number'}" sortable="'status'">{{items.status}}</td>
-          <td title="'Fecha de vencimiento'" filter="{ fechacadu: 'number'}" sortable="'fechacadu'">{{items.fechacadu}}</td>
-          <td title="'costo'" filter="{ costo: 'number'}" sortable="'costo'">{{items.costo | currency}}</td>
-        </tr>-->
-      </table>
-
-
+              </span>
+              </td>
+              <td title="'Descuento'" sortable="'descuento'">
+                {{producto.descuento}}%
+              </td>
+              <td title="'costo'" sortable="'costo'">
+                {{producto.precio | currency: "Bs"}}
+              </td>
+              <td title="'eliminar'">
+              <span>
+                <button ng-click="elimprod(producto)" class="button button-positive">
+                  <i class="ion-ios-trash"></i>
+                </button>
+              </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
     </div>
-  </div>
   </ion-content>
 </ion-view>
