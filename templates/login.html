@@ -1,6 +1,6 @@
-<ion-view view-title="Login">
-  <ion-content scroll="false" class="loginContent">
-    <!----><div class="cont">
+<ion-view view-title="Login" class="html">
+  <ion-content scroll="false"  class="body">
+    <!--<div class="cont">class="loginContent"
       <div class="posision">
         <div class="login">
           <div class="loginCheck"></div>
@@ -18,6 +18,46 @@
           </form>
         </div>
       </div>
-    </div>
+    </div>-->
+
+    <main class="auth-main">
+  <div class="auth-block">
+    <h1>Entra a Payio</h1>
+   
+
+     <!--<form class="form-horizontal" ng-submit="login.login()" method="post">-->
+   <form class="form-horizontal">
+
+
+
+
+
+<!---->
+<div class="row form-group">
+  <div class="col"> <label  class="col control-label">usuario</label></div>
+  <div class="col col-75"> <input type="text" class="form-control"  placeholder="usuario" ng-model="logdata.usu"></div>
+  <!--<div class="col col-75"> <input type="text" class="form-control"  placeholder="usuario" ng-model="user.usuario"></div>-->
+</div>
+
+<div class="row form-group">
+  <div class="col"> <label  class="col control-label">clave</label></div>
+  <div class="col col-75">  <input type="password" class="form-control"  placeholder="clave" ng-model="logdata.pass"></div>
+  <!--<div class="col col-75">  <input type="password" class="form-control"  placeholder="clave" ng-model="user.clave"></div>-->
+</div>
+
+
+      <div class="form-group">
+        <div class="col">
+          <button type="submit" class="btn btn-default btn-auth" ng-click="login()">Login</button>
+          <a href class="forgot-pass">olvido su clave?</a>
+        </div>
+      </div>
+    </form>
+
+    <div class="auth-sep"><span><span>Bienvenidos a Payio</span></span></div>
+
+
+  </div>
+</main>
   </ion-content>
 </ion-view>

@@ -50,6 +50,14 @@ angular.module('starter.socketServices', [])
     return this.datenl;
   }
 })
+.service('Cajas', function(){
+ this.enlazado = {idmaster:0};
+
+  this.giveEnlazado = function(){
+
+    return this.enlazado;
+  }
+})
 .service('userData', function(){
  this.datos = {};
 
@@ -74,17 +82,24 @@ angular.module('starter.socketServices', [])
     return this.inventario;
   }
 })
+.service('grafic', function(){
+ this.datgraf = [];
+ this.fecgraf = [];
+ this.serie = [];
 
-.service('Cajas', function(){
- this.enlazado = {idmaster:0};
+  this.giveitem = function(){
 
-  this.giveEnlazado = function(){
+    return this.datgraf.item;
+  }
+  this.giveservicio = function(){
 
-    return this.enlazado;
+    return this.datgraf.servicio;
+  }
+  this.giveotros = function(){
+
+    return this.datgraf.otros;
   }
 })
-
-
 .service('histcob', function(){
  this.cob = [];
  this.cobext = [];
@@ -106,6 +121,14 @@ angular.module('starter.socketServices', [])
   this.giveDet = function(){
 
     return this.detprod;
+  }
+})
+.service('aviso', function(){
+ this.av = 0;
+
+  this.giveav = function(){
+
+    return this.av;
   }
 })
 

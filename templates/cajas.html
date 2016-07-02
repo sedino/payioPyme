@@ -1,6 +1,6 @@
-<ion-view view-title="Cajas" class="fondo">
+<ion-view view-title="Cajas" class="body">
   <ion-content class="padding has-header">
-    <div class="row" ng-show="counprod === 0 ">
+    <!--<div class="row" ng-show="counprod === 0 ">
       <div class="col card">
         aqui aparecera sus cajas
       </div>
@@ -32,7 +32,72 @@
           </div>
         </div>
       </div>
+    </div>-->
+
+
+  <div class="row responsive-sm">
+    <div class="col">
+      <div class="widget md-whiteframe-z3">
+        <div style="padding-bottom:5px;margin-top:5px;">
+          <div class="row" style="padding:10px!important;padding-bottom:0px!important;">
+          <div class="col" style="padding:3px;background-color:rgba(0,0,0,0);">
+            <h4 style="font-size:15px;margin:0px!important;padding:0px!important;font-weight:100;color:white;">{{user}}</h4>
+          </div>
+          <div class="col" align="center" style="padding:3px;">
+            <p class="font-rc" style="padding:0px!important;margin:0px!important;color:white;font-size:20px;font-weight:100;"><span style="font-size:15px;font-weight:100;">Bs. </span>{{ingresos2}}</p>
+          </div>
+        </div>
+        <div align="center" ng-controller="ResumCtrl" style="margin-top:0px;margin-bottom:5px;">
+         <canvas id="doughnut" class="chart chart-doughnut" chart-data="data2"
+              chart-labels="labels2" chart-legend="false" chart-colours="colours" chart-options="options" chart-series="series2"
+              chart-click="onClick2" >
+            </canvas>
+        </div>
+          <div>
+          <div class="row" align="center" style="color:white;padding:0px;">
+            <div class="col" style="padding:0px;border-top:2px solid #FFD824;border-right:1px solid rgba(255,255,255,0.2);">
+              <div style="padding:2px;">
+                <p style="font-weight:100;font-size:14px;color:#fff;margin:0px;">Productos</p>
+                <p class="font-rc" style="font-size:15px;margin:0px;">{{ingresosItems2}}</p>
+              </div>
+            </div>
+            <div class="col" style="padding:0px;border-top:2px solid #384750;border-right:1px solid rgba(255,255,255,0.2);border-left:1px solid rgba(0,0,0,0.2);">
+              <div style="padding:2px;">
+                <p style="font-weight:100;font-size:14px;color:#fff;margin:0px;">Servicios</p>
+                <p class="font-rc" style="font-size:15px;margin:0px;">{{ingresosServicios2}}</p>
+              </div>
+            </div>
+            <div class="col" style="padding:0px;border-top:2px solid #48C8E1;border-left:1px solid rgba(0,0,0,0.2);">
+              <div style="padding:2px;">
+                <p style="font-weight:100;font-size:14px;color:#fff;margin:0px;">Otros</p>
+                <p class="font-rc" style="font-size:15px;margin:0px;">{{ingresosOtros2}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
+
+    <div class="col col-67">
+      <div class="widget md-whiteframe-z3">
+        <div class="list">
+          <a class="item item-icon-left item-icon-right"  style="color:rgba(0,0,0,0.8);">
+            <i class="icon ion-arrow-graph-up-right" style="color:orange;"></i>
+            CAJA {{userprin}}
+            <i class="icon ion-ios-refresh" style="color:#DD2651;"></i>
+          </a>
+          <a class="item item-icon-left item-icon-right" ng-repeat="cajas in datacajas"  style="color:rgba(0,0,0,0.8);">
+            <i class="icon ion-arrow-graph-up-right" style="color:orange;"></i>
+            CAJA {{cajas.userId}}
+            <i class="icon ion-ios-refresh" style="color:#DD2651;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
   </ion-content>
 </ion-view>
 

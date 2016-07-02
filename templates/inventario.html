@@ -1,20 +1,24 @@
-<ion-view view-title="Inventario" class="fondo">
+<ion-view view-title="Inventario" class="body">
   <ion-content class="inventario padding has-header">
     <div class="row" >
   	 <div class="col">
       <div class="list widget md-whiteframe-z2 ">
-        <div class="item item-avatar item-button-right">
-           <img src="img/favicon.png">
-          <h2>Marty McFly</h2>
-          <p>November 05, 1955</p>
-          <a class="button button-positive" href="#/app/inventario/:agregarModalId">
-            <i class="ion-android-add-circle"></i>
+        <div class="item  ">
+          <a class="item item-icon-left" href="#/app/inventario/:agregarModalId">
+            <i class="icon ion-android-add-circle"></i>
+              Agregar Producto
+            <span class="badge badge-assertive">
+              {{counprod}}
+            </span>
+
           </a>
+        
         </div>
         <div class="item item-body">
           <div class="row" ng-show="counprod === 0 ">
             <div class="col card barra">
-               aqui aparecera sus productos
+               
+               Aqui Aparecera sus Productos
             </div>
           </div>
   		    <table ng-table="datosTabla" class="table table-condensed table-bordered table-striped" >
@@ -38,7 +42,51 @@
               </td>
               <td title="'eliminar'">
               <span>
-                <button ng-click="elimprod(producto)" class="button button-positive">
+                <button ng-click="elimprod(producto)" class="button ">
+                  <i class="ion-ios-trash"></i>
+                </button>
+              </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </div>
+      <div class="col">
+      <div class="list widget md-whiteframe-z2 ">
+        <div class="item  ">
+          <a class="item item-icon-left" href="">
+            <i class="icon ion-android-add-circle"></i>
+              Agregar Servicio
+            <span class="badge badge-assertive">
+              {{counserv}}
+            </span>
+
+          </a>
+        
+        </div>
+        <div class="item item-body">
+          <div class="row" ng-show="counserv === 0 ">
+            <div class="col card barra">
+               Aqui Aparecera sus Servicos
+            </div>
+          </div>
+          <table ng-table="datosTabla1" class="table table-condensed table-bordered table-striped" >
+            <tr  ng-repeat="producto in dataServ" >
+              <td title="'Nombre'" sortable="'nompro'">
+              {{producto.nombre}}
+            </td>
+           
+          
+              <td title="'Clasificacion'" sortable="'clasificacion'">
+                {{producto.clasificacion}}
+              </td>
+              <td title="'costo'" sortable="'costo'">
+                {{producto.precio | currency: "Bs"}}
+              </td>
+              <td title="'eliminar'">
+              <span>
+                <button ng-click="elimprod(producto)" class="button ">
                   <i class="ion-ios-trash"></i>
                 </button>
               </span>

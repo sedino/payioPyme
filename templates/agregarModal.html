@@ -1,5 +1,5 @@
 
-<ion-view view-title="Agregar Productos" class="fondo" >
+<ion-view view-title="Agregar Productos" class="body" >
 
   
   <ion-content class="padding has-header">
@@ -17,8 +17,10 @@
       <label class="item item-input">
         <span class="input-label">Foto</span>
         <input type="text">
-      </label>
-      -->
+      </label>  -->
+      <form >
+
+    
       <label class="item item-input">
         <span class="input-label">Nombre</span>
         <input type="text" ng-model="regprod.nombre">
@@ -32,9 +34,9 @@
           Inventario
         </div>
         <select ng-model="regprod.existencia">
-          <option selected ng-value="1">Por Pedido</option>
-          <option ng-value="2">Existencia</option>
-          <option ng-value="3">Por Paquete</option>
+          <option ng-selected="regprod.existencia==='1'" ng-value="1">Por Pedido</option>
+          <option ng-selected="regprod.existencia==='2'" ng-value="2">Existencia</option>
+          <option ng-selected="regprod.existencia==='3'" ng-value="3">Por Paquete</option>
         </select>
       </label>
       <div class="" >
@@ -69,9 +71,15 @@
         <span class="input-label">Caracteristicas</span>
         <textarea type="text" ng-model="regprod.detalle"></textarea>
       </label>
+       </form>
+
+
+      <div class="button-bar">
+  <a class="button button-positive" ng-click="regProd()">Agregar</a>
+  <a class="button button-dark" ng-click="back()">Salir</a>
+</div>
   
 
-      <button class="button button-block button-positive" ng-click="regProd()">Agregar Producto</button>
     </div>
    
   </ion-content>

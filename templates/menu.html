@@ -1,12 +1,15 @@
-<ion-side-menus enable-menu-with-back-views="true">
+<ion-side-menus enable-menu-with-back-views="true" >
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+
+
+
+    <ion-nav-bar class="navigations">
     
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      <ion-nav-buttons side="left" >
+        <button class="button button-icon button-clear ion-navicon button-light" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-      <ion-tabs class=" tabs-background-dark tabs-icon-top tabs-top tabs-color-energized ">
+      <ion-tabs class=" tabs-background-dark tabs-icon-top tabs-top tabs-color-light ">
         <!-- resumen Tab -->
         <ion-tab  title="Resumen" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/app/resum"> 
         </ion-tab>
@@ -23,7 +26,9 @@
         <ion-tab  title="transferencia" icon-off="ion-cash" icon-on="ion-cash" href="#/app/transferencia">
         </ion-tab>
       </ion-tabs>
+
     </ion-nav-bar>
+
     <ion-nav-view name="menuContent">
       
 
@@ -34,7 +39,7 @@
 
   </ion-side-menu-content>
 
-   <ion-side-menu side="left"  enable-menu-with-back-views="false">
+   <ion-side-menu side="left"  enable-menu-with-back-views="false" >
     <div class="menuHeader" align="center">
     
     <img ng-src="img/logopayio.png" class="menu-image">
@@ -51,7 +56,7 @@
           <i class="icon ion-person"></i>
           login
         </a>
-        <a class="item item-icon-left" menu-close href="#/app/configuracion">
+        <a class="item item-icon-left" menu-close ng-click="logout()">
           <i class="icon ion-gear-a"></i>
           configuracion
         </a>

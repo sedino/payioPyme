@@ -1,6 +1,14 @@
-angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starter.socketServices', 
-  'chart.js', 'btford.socket-io',   'ngTable' ])
-
+angular.module('starter', ['ionic', 
+  'ngMessages',
+  'satellizer',
+  'chart.js', 
+  'btford.socket-io',
+  'ngTable',
+  
+  //'starter.constant',
+  'starter.controllers',
+  'starter.socketServices' 
+ ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,9 +25,14 @@ angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starte
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
+ // $authProvider.loginUrl = "http://localhost:1443/api/auth";
+ // $authProvider.tokenName = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqZ2Rlc2lnbiIsImlhdCI6MTQ2NzQ3Mjc3MSwiZXhwIjoxNDY3NDkwNzcxfQ.ctU2sw0TtOn0yqm9FDaedQIXjSbyRf-HsKZUVezKq4Y",
+  //$authProvider.tokenPrefix = "starter",
+
+
+  $stateProvider
   .state('login', {
       url: '/login',
       templateUrl:'templates/login.html',
@@ -70,7 +83,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starte
     }
   })
 
-    .state('app.addInv', {
+  .state('app.addInv', {
     url: '/inventario/:agregarModalId',
     views: {
       'menuContent': {
@@ -99,13 +112,7 @@ angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starte
   
       }
     }
-  })
-  
-  
-    
-
-
-  ;
+  });
 
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('/app/configuracion');
@@ -114,4 +121,10 @@ angular.module('starter', ['ionic', 'ngMessages', 'starter.controllers', 'starte
 
 
   
-});
+})
+
+
+
+
+;
+
